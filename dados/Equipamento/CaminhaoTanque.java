@@ -13,4 +13,9 @@ public class CaminhaoTanque extends Equipamento {
 		return capacidade;
 	}
 
+	@Override
+	public String getTipo() {
+		return "Caminhão Tanque";
+	}
+
 }

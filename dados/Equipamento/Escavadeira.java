@@ -20,4 +20,9 @@ public class Escavadeira extends Equipamento {
 		return carga;
 	}
 
+	@Override
+	public String getTipo() {
+		return "Escavadeira";
+	}
+
 }

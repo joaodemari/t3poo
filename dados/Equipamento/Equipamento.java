@@ -1,6 +1,6 @@
 package dados.Equipamento;
 
-public class Equipamento {
+public abstract class Equipamento {
 
 	private int id;
 
@@ -25,5 +25,7 @@ public class Equipamento {
 	public double getCustoDia() {
 		return custoDia;
 	}
+
+	public abstract String getTipo();
 
 }

@@ -13,4 +13,9 @@ public class Barco extends Equipamento {
 		return capacidade;
 	}
 
+	@Override
+	public String getTipo() {
+		return "Barco";
+	}
+
 }

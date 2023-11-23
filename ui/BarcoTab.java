@@ -25,7 +25,7 @@ public class BarcoTab extends JPanel {
         this.add(barcoField);
 
         // Define cores de fundo para os componentes (opcional)
-        this.setBackground(Color.lightGray);
+        this.setBackground(Color.cyan);
         barcoField.setBackground(Color.white);
 
         // Adiciona um ouvinte de eventos ou personaliza ainda mais conforme necessário
@@ -36,4 +36,7 @@ public class BarcoTab extends JPanel {
         return barcoField.getText();
     }
 
+    public void limpar() {
+        barcoField.setText("");
+    }
 }
