@@ -1,13 +1,12 @@
 package dados.Equipamento;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
-public class Colecao {
+public class ColecaoEquipamento {
 
     private ArrayList<Equipamento> equipamentos;
 
-    public Colecao() {
+    public ColecaoEquipamento() {
         equipamentos = new ArrayList<Equipamento>();
     }
 
@@ -35,7 +34,6 @@ public class Colecao {
     }
 
     public boolean idExists(String id) {
-
         try {
             int idInt = Integer.parseInt(id);
             for (Equipamento equipamento : equipamentos) {
