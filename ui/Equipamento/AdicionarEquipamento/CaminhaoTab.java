@@ -1,3 +1,5 @@
+package Equipamento.AdicionarEquipamento;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,7 +11,7 @@ public class CaminhaoTab extends JPanel {
     public CaminhaoTab() {
         super(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Layout com espaçamento
 
-        // Adiciona uma borda ao painel
+        // Adiciona uma borda ao painels
         this.setBorder(BorderFactory.createTitledBorder("Configurações do Caminhão"));
 
         caminhaoLabel = new JLabel("Capacidade");

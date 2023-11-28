@@ -25,6 +25,7 @@ public class ColecaoEquipamento {
     public String[][] getEquipamentosAsArray() {
         String[][] equipamentosArray = new String[equipamentos.size()][4];
         for (int i = 0; i < equipamentos.size(); i++) {
+            System.out.println(equipamentos.get(i).getNome());
             equipamentosArray[i][0] = String.valueOf(equipamentos.get(i).getId());
             equipamentosArray[i][1] = equipamentos.get(i).getNome();
             equipamentosArray[i][2] = String.valueOf(equipamentos.get(i).getCustoDia());

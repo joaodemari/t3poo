@@ -1,3 +1,5 @@
+package Equipamento.AdicionarEquipamento;
+
 import javax.swing.*;
 import java.awt.*;
 

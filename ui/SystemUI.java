@@ -1,18 +1,19 @@
 
-package components;
-
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class SideBar extends JFrame {
+import Equipamento.EquipamentosUI;
+import dados.Equipamento.ColecaoEquipamento;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class SystemUI extends JFrame {
     private JPanel sidebarPanel;
     private JPanel contentPanel;
     private JButton selectedButton;
 
-    public SideBar() {
-        setTitle("Sidebar Example");
+    public SystemUI() {
+        setTitle("ACMERescue");
         setSize(1200, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -30,7 +31,9 @@ public class SideBar extends JFrame {
         sidebarPanel.setBackground(Color.LIGHT_GRAY);
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
 
-        createSidebarButton("Home", new JPanel());
+        ColecaoEquipamento c = new ColecaoEquipamento();
+
+        createSidebarButton("Home", new EquipamentosUI(c));
         createSidebarButton("Atendimentos", new JPanel());
         createSidebarButton("Equipamentos", new JPanel());
         createSidebarButton("Equipes", new JPanel());
@@ -88,6 +91,6 @@ public class SideBar extends JFrame {
     }
 
     public static void main(String[] args) {
-        new SideBar();
+        new SystemUI();
     }
 }

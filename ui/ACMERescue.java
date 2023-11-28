@@ -1,12 +1,12 @@
-import dados.Equipamento.Colecao;
+import dados.Equipamento.ColecaoEquipamento;
 
 public class ACMERescue {
 
-    private Colecao equipamentos;
+    private ColecaoEquipamento equipamentos;
 
     public ACMERescue() {
-        equipamentos = new Colecao();
-        new MenuEquipamento(equipamentos);
+
+        new SystemUI();
 
     }
 
