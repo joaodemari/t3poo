@@ -9,6 +9,20 @@ public enum Combustivel {
         this.nome = nome;
     }
 
+    public static Combustivel getCombustivel(String nome) {
+        nome.toLowerCase();
+        switch (nome) {
+            case "diesel":
+                return DIESEL;
+            case "gasolina":
+                return GASOLINA;
+            case "alcool":
+                return ALCOOL;
+            default:
+                return null;
+        }
+    }
+
     public String getNome() {
         return nome;
     }

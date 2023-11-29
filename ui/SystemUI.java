@@ -2,7 +2,7 @@
 import javax.swing.*;
 
 import Equipamento.EquipamentosUI;
-import dados.Equipamento.ColecaoEquipamento;
+import dados.Colecao.ColecaoEquipamento;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -11,12 +11,13 @@ public class SystemUI extends JFrame {
     private JPanel sidebarPanel;
     private JPanel contentPanel;
     private JButton selectedButton;
+    private ColecaoEquipamento c;
 
-    public SystemUI() {
+    public SystemUI(ColecaoEquipamento c) {
         setTitle("ACMERescue");
         setSize(1200, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        this.c = c;
         createSidebar();
         createContentPanel();
 
@@ -30,8 +31,6 @@ public class SystemUI extends JFrame {
         sidebarPanel = new JPanel();
         sidebarPanel.setBackground(Color.LIGHT_GRAY);
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
-
-        ColecaoEquipamento c = new ColecaoEquipamento();
 
         createSidebarButton("Home", new EquipamentosUI(c));
         createSidebarButton("Atendimentos", new JPanel());
@@ -88,9 +87,5 @@ public class SystemUI extends JFrame {
         contentPanel.revalidate();
         contentPanel.repaint();
 
-    }
-
-    public static void main(String[] args) {
-        new SystemUI();
     }
 }

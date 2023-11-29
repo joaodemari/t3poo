@@ -2,9 +2,9 @@ package Equipamento.AdicionarEquipamento;
 
 import javax.swing.*;
 
+import dados.Colecao.ColecaoEquipamento;
 import dados.Equipamento.Barco;
 import dados.Equipamento.CaminhaoTanque;
-import dados.Equipamento.ColecaoEquipamento;
 import dados.Equipamento.Equipamento;
 import dados.Equipamento.Escavadeira;
 
@@ -42,14 +42,6 @@ public class AdicionarEquipamento extends JPanel implements ActionListener {
             }
         });
         actionsContainer.add(limpar);
-        voltar = new JButton("Voltar");
-        voltar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-            }
-        });
-        actionsContainer.add(voltar);
 
         add(actionsContainer);
 
