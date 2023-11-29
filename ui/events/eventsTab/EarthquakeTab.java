@@ -1,4 +1,4 @@
-package components.events.eventsTab;
+package events.eventsTab;
 
 import javax.swing.*;
 import java.awt.*;
