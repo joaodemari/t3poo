@@ -8,6 +8,8 @@ import MostrarRelatorio.MostrarRelatorioPanel;
 import dados.Colecao.ColecaoAtendimento;
 import dados.Colecao.ColecaoEquipamento;
 import dados.Colecao.ColecaoEquipe;
+import dados.Colecao.ColecaoEvents;
+import events.EventsUi;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -20,7 +22,7 @@ public class SystemUI extends JFrame {
     private ColecaoAtendimento atendimentos;
     private ColecaoEquipe equipes;
 
-    public SystemUI(ColecaoEquipamento equipamentos, ColecaoAtendimento atendimentos, ColecaoEquipe equipes) {
+    public SystemUI(ColecaoEquipamento equipamentos, ColecaoAtendimento atendimentos, ColecaoEquipe equipes, ColecaoEvents events) {
         setTitle("ACMERescue");
         setSize(1200, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +49,7 @@ public class SystemUI extends JFrame {
         createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos, equipes));
         createSidebarButton("Cadastrar Equipamento", new EquipamentosUI(equipamentos));
         createSidebarButton("Equipes", new VincularEquipamento(equipamentos, equipes));
-        createSidebarButton("Eventos", new JPanel());
+        createSidebarButton("Eventos", new EventsUi());
         createSidebarButton("Importar/Exportar dados", new JPanel());
     }
 

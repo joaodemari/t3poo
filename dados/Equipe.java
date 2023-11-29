@@ -1,21 +1,20 @@
 package dados;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import dados.Atendimento.Atendimento;
 import dados.Equipamento.Equipamento;
 
 public class Equipe implements Comparable<Equipe> {
-	private String codinome;
+	private String codigo;
 	private int quantidadeMembros;
 	private double latitude;
 	private double longitude;
 	private ArrayList<Atendimento> atendimentos;
 	private ArrayList<Equipamento> equipamentos;
 
-	public Equipe(String codinome, int quantidadeMembros, double latitude, double longitude) {
-		this.codinome = codinome;
+	public Equipe(String codigo, int quantidadeMembros, double latitude, double longitude) {
+		this.codigo = codigo;
 		this.quantidadeMembros = quantidadeMembros;
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -31,8 +30,8 @@ public class Equipe implements Comparable<Equipe> {
 		equipamentos.add(equipamento);
 	}
 
-	public String getCodinome() {
-		return codinome;
+	public String getCodigo() {
+		return codigo;
 	}
 
 	public int getQuantidadeMembros() {
@@ -49,12 +48,12 @@ public class Equipe implements Comparable<Equipe> {
 
 	@Override
 	public int compareTo(Equipe outraEquipe) {
-		return this.codinome.compareTo(outraEquipe.codinome);
+		return this.codigo.compareTo(outraEquipe.codigo);
 	}
 
 	@Override
 	public String toString() {
-		return "Codinome: " + codinome + "; Membros: " + quantidadeMembros + "; Latitude: " + latitude + "; Longitude: "
+		return "Codigo: " + codigo + "; Membros: " + quantidadeMembros + "; Latitude: " + latitude + "; Longitude: "
 				+ longitude;
 	}
 }

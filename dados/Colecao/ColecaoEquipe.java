@@ -21,14 +21,14 @@ public class ColecaoEquipe extends ArrayList<Equipe> {
     public String[] toCodinomeArray() {
         String[] codinomes = new String[this.size()];
         for (int i = 0; i < this.size(); i++) {
-            codinomes[i] = this.get(i).getCodinome();
+            codinomes[i] = this.get(i).getCodigo();
         }
         return codinomes;
     }
 
     public Equipe getEquipeByCodinome(String codinome) {
         for (Equipe equipe : this) {
-            if (equipe.getCodinome().toLowerCase().contains(codinome.toLowerCase())) {
+            if (equipe.getCodigo().toLowerCase().contains(codinome.toLowerCase())) {
                 return equipe;
             }
         }
@@ -38,7 +38,7 @@ public class ColecaoEquipe extends ArrayList<Equipe> {
     public String[][] toMatrix() {
         String[][] equipesArray = new String[this.size()][4];
         for (int i = 0; i < this.size(); i++) {
-            equipesArray[i][0] = this.get(i).getCodinome();
+            equipesArray[i][0] = this.get(i).getCodigo();
             equipesArray[i][1] = String.valueOf(this.get(i).getQuantidadeMembros());
             equipesArray[i][2] = String.valueOf(this.get(i).getLatitude());
             equipesArray[i][3] = String.valueOf(this.get(i).getLongitude());
@@ -48,7 +48,7 @@ public class ColecaoEquipe extends ArrayList<Equipe> {
 
     public boolean codinomeExists(String codinome) {
         for (Equipe equipe : this) {
-            if (equipe.getCodinome().equals(codinome)) {
+            if (equipe.getCodigo().equals(codinome)) {
                 return true;
             }
         }
