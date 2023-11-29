@@ -48,6 +48,9 @@ public class ReceberArquivo<T> {
             case "identificador;nome;custodiario;codinome;tipo;capacidade_combustivel;carga":
                 new lerArquivoEquipamentos<T>(entrada, colecao);
                 break;
+            case "codinome;quantidade;latitude;longitude":
+                new lerArquivoEquipes<T>(entrada, colecao);
+                break;
             default:
                 break;
         }

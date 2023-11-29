@@ -18,6 +18,14 @@ public class ColecaoEquipamento extends ArrayList<Equipamento> {
         this.remove(equipamento);
     }
 
+    public String[] toNomeArray() {
+        String[] nomes = new String[this.size()];
+        for (int i = 0; i < this.size(); i++) {
+            nomes[i] = this.get(i).getNome();
+        }
+        return nomes;
+    }
+
     @Override
     public String[][] toArray() {
         String[][] equipamentosArray = new String[this.size()][4];
@@ -42,5 +50,14 @@ public class ColecaoEquipamento extends ArrayList<Equipamento> {
             return false; // Se não puder converter para int, o ID não existe.
         }
         return false;
+    }
+
+    public Equipamento getEquipamentoByNome(String nome) {
+        for (Equipamento equipamento : this) {
+            if (equipamento.getNome().toLowerCase().contains(nome.toLowerCase())) {
+                return equipamento;
+            }
+        }
+        return null;
     }
 }

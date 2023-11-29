@@ -1,17 +1,33 @@
 import java.io.File;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+import dados.Equipe;
+import dados.Colecao.ColecaoAtendimento;
 import dados.Colecao.ColecaoEquipamento;
+import dados.Colecao.ColecaoEquipe;
 import dados.Equipamento.Equipamento;
 import files.ReceberArquivo;
 
 public class ACMERescue {
 
     private ColecaoEquipamento equipamentos;
+    private ColecaoEquipe equipes;
+    private ColecaoAtendimento atendimentos;
 
     public ACMERescue() {
         this.equipamentos = new ColecaoEquipamento();
+        this.equipes = new ColecaoEquipe();
+        this.atendimentos = new ColecaoAtendimento();
         new ReceberArquivo<Equipamento>("files/example/EXEMPLO-EQUIPAMENTOS.CSV", equipamentos).lerDados();
-        new SystemUI(equipamentos);
+        new ReceberArquivo<Equipe>("files/example/EXEMPLO-EQUIPES.CSV", equipes).lerDados();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new SystemUI(equipamentos, atendimentos, equipes);
+                frame.setVisible(true);
+            }
+        });
 
     }
 
