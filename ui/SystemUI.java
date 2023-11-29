@@ -4,6 +4,7 @@ import javax.swing.*;
 import Atendimento.AdicionarAtendimento.AdicionarAtendimento;
 import Equipamento.EquipamentosUI;
 import Equipe.VincularEquipamento;
+import MostrarRelatorio.MostrarRelatorioPanel;
 import dados.Colecao.ColecaoAtendimento;
 import dados.Colecao.ColecaoEquipamento;
 import dados.Colecao.ColecaoEquipe;
@@ -20,7 +21,6 @@ public class SystemUI extends JFrame {
     private ColecaoEquipamento equipamentos;
     private ColecaoAtendimento atendimentos;
     private ColecaoEquipe equipes;
-    private JButton refreshButton;
 
     public SystemUI(ColecaoEquipamento equipamentos, ColecaoAtendimento atendimentos, ColecaoEquipe equipes, ColecaoEvents events) {
         setTitle("ACMERescue");
@@ -31,12 +31,10 @@ public class SystemUI extends JFrame {
         this.equipes = equipes;
         createSidebar();
         createContentPanel();
-        createRefreshButton(); // Added method to create refresh button
 
         setLayout(new BorderLayout());
         add(sidebarPanel, BorderLayout.WEST);
         add(contentPanel, BorderLayout.CENTER);
-        add(refreshButton, BorderLayout.SOUTH); // Added refresh button to the south
         setVisible(true);
     }
 
@@ -46,8 +44,10 @@ public class SystemUI extends JFrame {
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
 
         createSidebarButton("Home", new JPanel());
-        createSidebarButton("Atendimentos", new AdicionarAtendimento(atendimentos, equipes));
-        createSidebarButton("Equipamentos", new EquipamentosUI(equipamentos));
+        createSidebarButton("Relatório Geral", new MostrarRelatorioPanel(atendimentos, equipes, equipamentos, eventos));
+        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos, equipes));
+        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos, equipes));
+        createSidebarButton("Cadastrar Equipamento", new EquipamentosUI(equipamentos));
         createSidebarButton("Equipes", new VincularEquipamento(equipamentos, equipes));
         createSidebarButton("Eventos", new EventsUi());
         createSidebarButton("Importar/Exportar dados", new JPanel());
@@ -82,20 +82,6 @@ public class SystemUI extends JFrame {
         JLabel contentLabel = new JLabel("Content Panel");
         contentLabel.setFont(new Font("Arial", Font.BOLD, 20));
         contentPanel.add(contentLabel);
-    }
-
-    private void createRefreshButton() {
-        refreshButton = new JButton("Refresh");
-        refreshButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Handle refresh button click event here
-                refreshUI();
-            }
-        });
-    }
-
-    private void refreshUI() {
     }
 
     private void handleSidebarButtonClick(JButton button, String buttonText, JPanel buttonPanel) {
