@@ -6,8 +6,17 @@ import dados.Equipe;
 
 public class ColecaoEquipe extends ArrayList<Equipe> {
 
-    public ColecaoEquipe() {
+    private static ColecaoEquipe instance;
+
+    private ColecaoEquipe() {
         super();
+    }
+
+    public static ColecaoEquipe getInstance() {
+        if (instance == null) {
+            instance = new ColecaoEquipe();
+        }
+        return instance;
     }
 
     public void adicionarEquipe(Equipe equipe) {

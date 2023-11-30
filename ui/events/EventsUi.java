@@ -5,6 +5,7 @@ import java.awt.*;
 
 import dados.Colecao.ColecaoEvents;
 import dados.events.*;
+import events.eventsTab.AdicionarEventos;
 
 public class EventsUi extends JPanel {
     private JButton refresh;

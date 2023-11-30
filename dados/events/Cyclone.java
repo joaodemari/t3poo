@@ -1,7 +1,7 @@
 package dados.events;
 
 public class Cyclone extends Event {
-	
+
     private double speed;
     private double precipitation;
 
@@ -17,5 +17,10 @@ public class Cyclone extends Event {
 
     public double getPrecipitation() {
         return precipitation;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "; Velocidade: " + speed + "; Precipitação: " + precipitation;
     }
 }

@@ -18,4 +18,9 @@ public class Barco extends Equipamento {
 		return "Barco";
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + "; Capacidade: " + capacidade;
+	}
+
 }

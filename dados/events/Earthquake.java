@@ -1,4 +1,5 @@
 package dados.events;
+
 public class Earthquake extends Event {
 
     private double magnitude;
@@ -10,5 +11,10 @@ public class Earthquake extends Event {
 
     public double getMagnitude() {
         return magnitude;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "; Magnitude: " + magnitude;
     }
 }

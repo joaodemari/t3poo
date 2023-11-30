@@ -56,4 +56,13 @@ public class Equipe implements Comparable<Equipe> {
 		return "Codigo: " + codigo + "; Membros: " + quantidadeMembros + "; Latitude: " + latitude + "; Longitude: "
 				+ longitude;
 	}
+
+	public boolean estaDisponivel(String dataInicio, int duracao) {
+		for (Atendimento atendimento : atendimentos) {
+			if (atendimento.getDataInicio().equals(dataInicio)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

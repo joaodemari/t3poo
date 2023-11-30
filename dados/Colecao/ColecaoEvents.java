@@ -5,9 +5,18 @@ import java.util.ArrayList;
 import dados.events.Event;
 
 public class ColecaoEvents extends ArrayList<Event> {
-    
-    public ColecaoEvents() {
+
+    private static ColecaoEvents instance;
+
+    private ColecaoEvents() {
         super();
+    }
+
+    public static ColecaoEvents getInstance() {
+        if (instance == null) {
+            instance = new ColecaoEvents();
+        }
+        return instance;
     }
 
     public void adicionarEvent(Event event) {
@@ -35,6 +44,14 @@ public class ColecaoEvents extends ArrayList<Event> {
         return null;
     }
 
+    public String[] toArraysStrings() {
+        String[] codinome = new String[this.size()];
+        for (int i = 0; i < this.size(); i++) {
+            codinome[i] = this.get(i).toString();
+        }
+        return codinome.length > 0 ? codinome : new String[] { "Nenhum evento cadastrado" };
+    }
+
     public String[][] toMatrix() {
         String[][] eventsArray = new String[this.size()][4];
         for (int i = 0; i < this.size(); i++) {
@@ -54,5 +71,5 @@ public class ColecaoEvents extends ArrayList<Event> {
         }
         return false;
     }
-    
+
 }

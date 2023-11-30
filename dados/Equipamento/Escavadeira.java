@@ -25,4 +25,9 @@ public class Escavadeira extends Equipamento {
 		return "Escavadeira";
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + "; Combustível: " + combustivel + "; Carga: " + carga;
+	}
+
 }

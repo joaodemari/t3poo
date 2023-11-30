@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-import dados.Colecao.ColecaoEquipamento;
+import dados.Colecao.*;
 import dados.Equipamento.Equipamento;
 
 public class ReceberArquivo<T> {
@@ -49,7 +49,11 @@ public class ReceberArquivo<T> {
                 new lerArquivoEquipamentos<T>(entrada, colecao);
                 break;
             case "codinome;quantidade;latitude;longitude":
-                new lerArquivoEquipes<T>(entrada, colecao);
+                new LerArquivoEquipes<T>(entrada, colecao);
+                break;
+            case "cod;dataInicio;duracao;status;codigo":
+
+                new LerArquivoAtendimentos<T>(entrada, colecao);
                 break;
             default:
                 break;

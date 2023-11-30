@@ -28,4 +28,8 @@ public abstract class Equipamento {
 
 	public abstract String getTipo();
 
+	@Override
+	public String toString() {
+		return "ID: " + id + "; Nome: " + nome + "; Custo por dia: " + custoDia + "; Tipo: " + getTipo();
+	}
 }

@@ -1,0 +1,19 @@
+3333
+04/11/2023
+12
+null
+Erro ao ler a linha do arquivo de atendimentos.
+Evento não encontrado.
+1111
+05/09/2023
+31
+null
+Erro ao ler a linha do arquivo de atendimentos.
+Evento não encontrado.
+2222
+17/10/2023
+14
+null
+Erro ao ler a linha do arquivo de atendimentos.
+Evento não encontrado.
+Importing from: 

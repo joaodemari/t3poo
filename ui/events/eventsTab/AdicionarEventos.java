@@ -115,26 +115,29 @@ public class AdicionarEventos extends JPanel implements ActionListener {
                 throw new InputMismatchException();
             Event evento = null;
 
-            switch (tabIndex) {
-                case 0: // Ciclone
-                    evento = new Cyclone(Integer.parseInt(idField.getText()), nomeField.getText(),
-                            Double.parseDouble(custoDiaField.getText()), cycloneTab.getSpeed());
-                            Double.parseDouble(custoDiaField.getText()), cycloneTab.getPrecipitation());
-                    break;
-                case 1: // Caminhão Tanque
-                    evento = new CaminhaoTanque(Integer.parseInt(idField.getText()), nomeField.getText(),
-                            Double.parseDouble(custoDiaField.getText()),
-                            Integer.parseInt(caminhaoTab.getCapacidade()));
-                    break;
-                case 2: // Escavadeira
-                    evento = new Escavadeira(Integer.parseInt(idField.getText()), nomeField.getText(),
-                            Double.parseDouble(custoDiaField.getText()), escavadeiraTab.getCombustivel(),
-                            Integer.parseInt(escavadeiraTab.getCapacidade()));
-                    break;
-            }
+            // switch (tabIndex) {
+            // case 0: // Ciclone
+            // evento = new Cyclone(Integer.parseInt(idField.getText()),
+            // nomeField.getText(),
+            // Double.parseDouble(custoDiaField.getText()), cycloneTab.getSpeed());
+            // Double.parseDouble(custoDiaField.getText()), cycloneTab.getPrecipitation());
+            // break;
+            // case 1: // Caminhão Tanque
+            // evento = new CaminhaoTanque(Integer.parseInt(idField.getText()),
+            // nomeField.getText(),
+            // Double.parseDouble(custoDiaField.getText()),
+            // Integer.parseInt(caminhaoTab.getCapacidade()));
+            // break;
+            // case 2: // Escavadeira
+            // evento = new Escavadeira(Integer.parseInt(idField.getText()),
+            // nomeField.getText(),
+            // Double.parseDouble(custoDiaField.getText()), escavadeiraTab.getCombustivel(),
+            // Integer.parseInt(escavadeiraTab.getCapacidade()));
+            // break;
+            // }
 
-            // Adiciona o equipamento à coleção
-            eventos.adicionar(evento);
+            // // Adiciona o equipamento à coleção
+            // eventos.adicionar(evento);
             showMessage("Evento adicionado com sucesso!");
 
         } catch (InputMismatchException error) {

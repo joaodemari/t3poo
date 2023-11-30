@@ -7,11 +7,11 @@ import java.util.Scanner;
 import dados.Colecao.ColecaoEquipe;
 import dados.Equipe;
 
-public class lerArquivoEquipes<T> {
+public class LerArquivoEquipes<T> {
 
     private ColecaoEquipe colecao;
 
-    public lerArquivoEquipes(Scanner entrada, ArrayList<T> equipes) {
+    public LerArquivoEquipes(Scanner entrada, ArrayList<T> equipes) {
         this.colecao = (ColecaoEquipe) equipes;
         while (entrada.hasNextLine()) {
             try {

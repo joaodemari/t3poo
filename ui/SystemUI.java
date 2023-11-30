@@ -2,8 +2,9 @@
 import javax.swing.*;
 
 import Atendimento.AdicionarAtendimento.AdicionarAtendimento;
-import Equipamento.EquipamentosUI;
+import Equipamento.AdicionarEquipamento.AdicionarEquipamento;
 import Equipe.VincularEquipamento;
+import ImportExport.ImportExportPanel;
 import MostrarRelatorio.MostrarRelatorioPanel;
 import dados.Colecao.ColecaoAtendimento;
 import dados.Colecao.ColecaoEquipamento;
@@ -14,21 +15,22 @@ import events.EventsUi;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SystemUI extends JFrame {
+public class SystemUI extends JPanel {
     private JPanel sidebarPanel;
     private JPanel contentPanel;
     private JButton selectedButton;
     private ColecaoEquipamento equipamentos;
     private ColecaoAtendimento atendimentos;
     private ColecaoEquipe equipes;
+    private ColecaoEvents events;
 
-    public SystemUI(ColecaoEquipamento equipamentos, ColecaoAtendimento atendimentos, ColecaoEquipe equipes, ColecaoEvents events) {
-        setTitle("ACMERescue");
-        setSize(1200, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public SystemUI(ColecaoEquipamento equipamentos, ColecaoAtendimento atendimentos, ColecaoEquipe equipes,
+            ColecaoEvents events) {
+        setPreferredSize(new Dimension(1000, 600));
         this.equipamentos = equipamentos;
         this.atendimentos = atendimentos;
         this.equipes = equipes;
+        this.events = events;
         createSidebar();
         createContentPanel();
 
@@ -44,22 +46,17 @@ public class SystemUI extends JFrame {
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.Y_AXIS));
 
         createSidebarButton("Home", new JPanel());
-        createSidebarButton("Relatório Geral", new MostrarRelatorioPanel(atendimentos, equipes, equipamentos, eventos));
-        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos, equipes));
-        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos, equipes));
-        createSidebarButton("Cadastrar Equipamento", new EquipamentosUI(equipamentos));
+        createSidebarButton("Relatório Geral", new MostrarRelatorioPanel(atendimentos, equipes, equipamentos, events));
+        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos));
+        createSidebarButton("Cadastrar Equipamento", new AdicionarEquipamento(equipamentos));
         createSidebarButton("Equipes", new VincularEquipamento(equipamentos, equipes));
-        createSidebarButton("Eventos", new EventsUi());
-        createSidebarButton("Importar/Exportar dados", new JPanel());
+        createSidebarButton("Eventos", new EventsUi(events));
+        createSidebarButton("Importar/Exportar dados", new ImportExportPanel());
     }
 
     private JButton createSidebarButton(String text, JPanel content) {
         JButton button = new JButton(text);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        if (content.countComponents() == 0) {
-            content.setBackground(Color.WHITE);
-            content.add(new JLabel(text));
-        }
 
         button.addActionListener(new ActionListener() {
             @Override
@@ -101,4 +98,5 @@ public class SystemUI extends JFrame {
         contentPanel.repaint();
 
     }
+
 }

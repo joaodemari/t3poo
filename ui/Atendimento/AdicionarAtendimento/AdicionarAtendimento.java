@@ -10,17 +10,19 @@ import dados.Atendimento.Atendimento;
 import dados.Atendimento.Status;
 import dados.Colecao.ColecaoAtendimento;
 import dados.Colecao.ColecaoEquipe;
+import dados.Colecao.ColecaoEvents;
+import dados.events.Event;
 import dados.Equipe;
 
 public class AdicionarAtendimento extends JPanel implements ActionListener {
     private ColecaoAtendimento atendimentos;
 
     private JButton botao, limpar;
-    private JLabel codLabel, dataInicioLabel, duracaoLabel, equipeLabel;
+    private JLabel codLabel, dataInicioLabel, duracaoLabel, eventLabel;
     private JTextField codField, dataInicioField, duracaoField;
-    private JComboBox<String> equipeComboBox;
+    private JComboBox<String> eventComboBox;
 
-    public AdicionarAtendimento(ColecaoAtendimento atendimentos, ColecaoEquipe equipes) {
+    public AdicionarAtendimento(ColecaoAtendimento atendimentos) {
         this.atendimentos = atendimentos;
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -55,11 +57,13 @@ public class AdicionarAtendimento extends JPanel implements ActionListener {
         add(duracaoLabel);
         add(duracaoField);
 
-        equipeLabel = new JLabel("Equipe");
-        equipeComboBox = new JComboBox<String>(equipes.toCodinomeArray());
+        ColecaoEvents events = ColecaoEvents.getInstance();
+        eventComboBox = new JComboBox<String>(events.toArraysStrings());
 
-        add(equipeLabel);
-        add(equipeComboBox);
+        eventLabel = new JLabel("Evento");
+
+        add(eventLabel);
+        add(eventComboBox);
 
         botao = new JButton("ADICIONAR");
         add(botao);
@@ -78,11 +82,13 @@ public class AdicionarAtendimento extends JPanel implements ActionListener {
             }
 
             int cod = Integer.parseInt(codField.getText());
-            Date dataInicio = Date.valueOf(dataInicioField.getText());
+            String dataInicio = dataInicioField.getText();
             int duracao = Integer.parseInt(duracaoField.getText());
-            Equipe equipe = (Equipe) equipeComboBox.getSelectedItem();
-
-            Atendimento atendimento = new Atendimento(cod, dataInicio, duracao, equipe);
+            String[] EventString = ((String) eventComboBox.getSelectedItem()).split(";");
+            Event event = ColecaoEvents.getInstance().getEventByCodiigo(EventString[0]);
+            if (event == null)
+                throw new Exception("Evento não encontrado.");
+            Atendimento atendimento = new Atendimento(cod, dataInicio, duracao, event);
             atendimentos.adicionar(atendimento);
 
             showMessage("Atendimento adicionado com sucesso!");
@@ -91,7 +97,7 @@ public class AdicionarAtendimento extends JPanel implements ActionListener {
         } catch (NumberFormatException error) {
             showMessage("Duração deve ser um número inteiro.");
         } catch (Exception error) {
-            showMessage("Erro ao adicionar atendimento.");
+            showMessage("Erro ao adicionar atendimento");
         }
     }
 

@@ -1,10 +1,10 @@
 package dados.events;
 
 public class Event {
-	private String codigo;
-	private String data;
-	private double latitude;
-	private double longitude;
+    private String codigo;
+    private String data;
+    private double latitude;
+    private double longitude;
 
     public Event(String codigo, String data, double latitude, double longitude) {
         this.codigo = codigo;
@@ -27,5 +27,10 @@ public class Event {
 
     public double getLongitude() {
         return longitude;
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo + "; Data: " + data + "; Latitude: " + latitude + "; Longitude: " + longitude;
     }
 }

@@ -12,4 +12,9 @@ public class Drought extends Event {
     public double getDrought() {
         return drought;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "; Seca: " + drought;
+    }
 }
