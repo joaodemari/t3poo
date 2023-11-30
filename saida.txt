@@ -16,4 +16,10 @@ Evento não encontrado.
 null
 Erro ao ler a linha do arquivo de atendimentos.
 Evento não encontrado.
-Importing from: 
+Exporting to: adsdssadasd
+Exporting to: FILES/ADS
+Erro ao exportar dados para o arquivo.
+Erro ao exportar dados para o arquivo.
+Erro ao exportar dados para o arquivo.
+Erro ao exportar dados para o arquivo.
+Exporting to: newfolder/dasads

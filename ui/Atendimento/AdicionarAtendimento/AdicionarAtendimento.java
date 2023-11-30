@@ -16,13 +16,13 @@ import dados.Equipe;
 
 public class AdicionarAtendimento extends JPanel implements ActionListener {
     private ColecaoAtendimento atendimentos;
-
+    private ColecaoEvents events;
     private JButton botao, limpar;
     private JLabel codLabel, dataInicioLabel, duracaoLabel, eventLabel;
     private JTextField codField, dataInicioField, duracaoField;
     private JComboBox<String> eventComboBox;
 
-    public AdicionarAtendimento(ColecaoAtendimento atendimentos) {
+    public AdicionarAtendimento(ColecaoAtendimento atendimentos, ColecaoEvents events) {
         this.atendimentos = atendimentos;
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -57,7 +57,7 @@ public class AdicionarAtendimento extends JPanel implements ActionListener {
         add(duracaoLabel);
         add(duracaoField);
 
-        ColecaoEvents events = ColecaoEvents.getInstance();
+        this.events = events;
         eventComboBox = new JComboBox<String>(events.toArraysStrings());
 
         eventLabel = new JLabel("Evento");
@@ -85,7 +85,7 @@ public class AdicionarAtendimento extends JPanel implements ActionListener {
             String dataInicio = dataInicioField.getText();
             int duracao = Integer.parseInt(duracaoField.getText());
             String[] EventString = ((String) eventComboBox.getSelectedItem()).split(";");
-            Event event = ColecaoEvents.getInstance().getEventByCodiigo(EventString[0]);
+            Event event = events.getEventByCodiigo(EventString[0]);
             if (event == null)
                 throw new Exception("Evento não encontrado.");
             Atendimento atendimento = new Atendimento(cod, dataInicio, duracao, event);

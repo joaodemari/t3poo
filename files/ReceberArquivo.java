@@ -12,15 +12,16 @@ import java.util.Scanner;
 
 import dados.Colecao.*;
 import dados.Equipamento.Equipamento;
+import files.LerArquivos.LerArquivoAtendimentos;
+import files.LerArquivos.LerArquivoEquipes;
+import files.LerArquivos.lerArquivoEquipamentos;
 
-public class ReceberArquivo<T> {
+public class ReceberArquivo {
     private Scanner entrada = new Scanner(System.in); // Atributo para entrada de dados
     private PrintStream saidaPadrao = System.out; // Guarda a saida padrao - tela(console)
-    private ArrayList<T> colecao;
 
     // Construtor
-    public ReceberArquivo(String pathDoArquivo, ArrayList<T> colecao) {
-        this.colecao = colecao;
+    public ReceberArquivo(String pathDoArquivo) {
         try {
             BufferedReader streamEntrada = new BufferedReader(
                     new FileReader(pathDoArquivo));
@@ -46,18 +47,24 @@ public class ReceberArquivo<T> {
         String primeiraLinha = entrada.nextLine();
         switch (primeiraLinha) {
             case "identificador;nome;custodiario;codinome;tipo;capacidade_combustivel;carga":
-                new lerArquivoEquipamentos<T>(entrada, colecao);
+                ColecaoEquipamento equipamentos = ColecaoEquipamento.getInstance();
+                new lerArquivoEquipamentos(entrada, (ColecaoEquipamento) equipamentos);
                 break;
-            case "codinome;quantidade;latitude;longitude":
-                new LerArquivoEquipes<T>(entrada, colecao);
-                break;
-            case "cod;dataInicio;duracao;status;codigo":
 
-                new LerArquivoAtendimentos<T>(entrada, colecao);
+            case "codinome;quantidade;latitude;longitude":
+                ColecaoEquipe equipes = ColecaoEquipe.getInstance();
+                new LerArquivoEquipes(entrada, (ColecaoEquipe) equipes);
+                break;
+
+            case "cod;dataInicio;duracao;status;codigo":
+                ColecaoAtendimento atendimentos = ColecaoAtendimento.getInstance();
+                new LerArquivoAtendimentos(entrada, (ColecaoAtendimento) atendimentos);
                 break;
             default:
+                // Handle other cases or show an error message
                 break;
         }
+
     }
 
 }

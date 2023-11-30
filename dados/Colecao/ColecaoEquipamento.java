@@ -6,13 +6,11 @@ import dados.Equipamento.Equipamento;
 
 public class ColecaoEquipamento extends ArrayList<Equipamento> {
 
-    private static ColecaoEquipamento instance;
-
     private ColecaoEquipamento() {
         super();
     }
 
-    public static ColecaoEquipamento getInstance() {
+    public ColecaoEquipamento getInstance() {
         if (instance == null) {
             instance = new ColecaoEquipamento();
         }

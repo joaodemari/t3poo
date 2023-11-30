@@ -47,11 +47,12 @@ public class SystemUI extends JPanel {
 
         createSidebarButton("Home", new JPanel());
         createSidebarButton("Relatório Geral", new MostrarRelatorioPanel(atendimentos, equipes, equipamentos, events));
-        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos));
+        createSidebarButton("Cadastrar Atendimento", new AdicionarAtendimento(atendimentos, events));
         createSidebarButton("Cadastrar Equipamento", new AdicionarEquipamento(equipamentos));
         createSidebarButton("Equipes", new VincularEquipamento(equipamentos, equipes));
         createSidebarButton("Eventos", new EventsUi(events));
-        createSidebarButton("Importar/Exportar dados", new ImportExportPanel());
+        createSidebarButton("Importar/Exportar dados",
+                new ImportExportPanel(atendimentos, equipes, equipamentos, events));
     }
 
     private JButton createSidebarButton(String text, JPanel content) {

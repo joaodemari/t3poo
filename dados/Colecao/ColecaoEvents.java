@@ -6,17 +6,8 @@ import dados.events.Event;
 
 public class ColecaoEvents extends ArrayList<Event> {
 
-    private static ColecaoEvents instance;
-
-    private ColecaoEvents() {
+    public ColecaoEvents() {
         super();
-    }
-
-    public static ColecaoEvents getInstance() {
-        if (instance == null) {
-            instance = new ColecaoEvents();
-        }
-        return instance;
     }
 
     public void adicionarEvent(Event event) {

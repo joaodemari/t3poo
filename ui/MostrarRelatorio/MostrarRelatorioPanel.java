@@ -22,7 +22,7 @@ public class MostrarRelatorioPanel extends JPanel {
         setLayout(new GridLayout(2, 2));
 
         // Create subpanels to display each collection
-        add(createSubPanel("Atendimentos", ColecaoAtendimento.getInstance()));
+        add(createSubPanel("Atendimentos", atendimentos));
         add(createSubPanel("Equipes", equipes));
         add(createSubPanel("Eventos", events));
         add(createSubPanel("Equipamentos", equipamentos));

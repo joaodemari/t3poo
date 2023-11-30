@@ -6,17 +6,8 @@ import dados.Atendimento.Atendimento;
 
 public class ColecaoAtendimento extends ArrayList<Atendimento> {
 
-    private static ColecaoAtendimento instance;
-
-    private ColecaoAtendimento() {
+    public ColecaoAtendimento() {
         super();
-    }
-
-    public static ColecaoAtendimento getInstance() {
-        if (instance == null) {
-            instance = new ColecaoAtendimento();
-        }
-        return instance;
     }
 
     public void adicionar(Atendimento atendimento) {
