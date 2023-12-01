@@ -28,14 +28,15 @@ public class ACMERescue {
     private JPanel sistema;
 
     public ACMERescue() {
-        this.equipamentos = ColecaoEquipamento.getInstance();
-        this.equipes = ColecaoEquipe.getInstance();
-        this.atendimentos = ColecaoAtendimento.getInstance();
-        this.events = ColecaoEvents.getInstance();
-        new ReceberArquivo("files/example/EXEMPLO-EQUIPAMENTOS.CSV").lerDados();
-        new ReceberArquivo("files/example/EXEMPLO-EQUIPES.CSV").lerDados();
-        new ReceberArquivo("files/example/EXEMPLO-EVENTOS.CSV").lerDados();
-        new ReceberArquivo("files/example/EXEMPLO-ATENDIMENTOS.CSV").lerDados();
+        this.equipamentos = new ColecaoEquipamento();
+        this.equipes = new ColecaoEquipe();
+        this.atendimentos = new ColecaoAtendimento();
+        this.events = new ColecaoEvents();
+        new ReceberArquivo<Equipamento>("files/example/EXEMPLO-EQUIPAMENTOS.CSV", equipamentos).lerDados();
+        new ReceberArquivo<Equipe>("files/example/EXEMPLO-EQUIPES.CSV", equipes).lerDados();
+        new ReceberArquivo<Event>("files/example/EXEMPLO-EVENTOS.CSV", events).lerDados();
+        new ReceberArquivo<Atendimento>("files/example/EXEMPLO-ATENDIMENTOS.CSV", atendimentos).lerDados();
+
         this.frame = new JFrame("ACME Rescue");
         BoxLayout boxLayout = new BoxLayout(frame, BoxLayout.X_AXIS);
         frame.setLayout(boxLayout);

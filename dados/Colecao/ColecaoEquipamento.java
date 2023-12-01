@@ -6,15 +6,8 @@ import dados.Equipamento.Equipamento;
 
 public class ColecaoEquipamento extends ArrayList<Equipamento> {
 
-    private ColecaoEquipamento() {
+    public ColecaoEquipamento() {
         super();
-    }
-
-    public ColecaoEquipamento getInstance() {
-        if (instance == null) {
-            instance = new ColecaoEquipamento();
-        }
-        return instance;
     }
 
     public void adicionar(Equipamento equipamento) {
@@ -54,7 +47,7 @@ public class ColecaoEquipamento extends ArrayList<Equipamento> {
                 }
             }
         } catch (NumberFormatException e) {
-            return false; // Se não puder converter para int, o ID não existe.
+            return false;
         }
         return false;
     }

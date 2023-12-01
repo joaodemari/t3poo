@@ -49,7 +49,6 @@ public class AdicionarEventos extends JPanel implements ActionListener {
         idContainer.add(idField);
         add(idContainer);
 
-        // Labels e Fields
         nomeLabel = new JLabel("Nome do Equipamento");
         nomeField = new JTextField(20);
 
@@ -65,7 +64,6 @@ public class AdicionarEventos extends JPanel implements ActionListener {
         custoDiaContainer.add(custoDiaField);
         add(custoDiaContainer);
 
-        // Tabs
         tipoTab = new JTabbedPane();
         cycloneTab = new CycloneTab();
         earthquakeTab = new EarthquakeTab();
@@ -74,8 +72,6 @@ public class AdicionarEventos extends JPanel implements ActionListener {
         tipoTab.addTab("Cyclone", cycloneTab);
         tipoTab.addTab("Earthquake", earthquakeTab);
         tipoTab.addTab("Drought", droughtTab);
-
-        // Adicione outras tabs conforme necessário
 
         tipoContainer = new JPanel();
         tipoContainer.add(tipoTab);
@@ -103,11 +99,8 @@ public class AdicionarEventos extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        // Verifica qual tab está selecionada
         try {
             int tabIndex = tipoTab.getSelectedIndex();
-
-            // Cria o objeto do tipo correspondente à tab selecionada
 
             if (nomeField.getText().equals(""))
                 throw new InputMismatchException();
@@ -115,29 +108,6 @@ public class AdicionarEventos extends JPanel implements ActionListener {
                 throw new InputMismatchException();
             Event evento = null;
 
-            // switch (tabIndex) {
-            // case 0: // Ciclone
-            // evento = new Cyclone(Integer.parseInt(idField.getText()),
-            // nomeField.getText(),
-            // Double.parseDouble(custoDiaField.getText()), cycloneTab.getSpeed());
-            // Double.parseDouble(custoDiaField.getText()), cycloneTab.getPrecipitation());
-            // break;
-            // case 1: // Caminhão Tanque
-            // evento = new CaminhaoTanque(Integer.parseInt(idField.getText()),
-            // nomeField.getText(),
-            // Double.parseDouble(custoDiaField.getText()),
-            // Integer.parseInt(caminhaoTab.getCapacidade()));
-            // break;
-            // case 2: // Escavadeira
-            // evento = new Escavadeira(Integer.parseInt(idField.getText()),
-            // nomeField.getText(),
-            // Double.parseDouble(custoDiaField.getText()), escavadeiraTab.getCombustivel(),
-            // Integer.parseInt(escavadeiraTab.getCapacidade()));
-            // break;
-            // }
-
-            // // Adiciona o equipamento à coleção
-            // eventos.adicionar(evento);
             showMessage("Evento adicionado com sucesso!");
 
         } catch (InputMismatchException error) {

@@ -3,23 +3,16 @@
 12
 null
 Erro ao ler a linha do arquivo de atendimentos.
-Evento não encontrado.
+Cannot invoke "dados.Colecao.ColecaoEvents.getEventByCodiigo(String)" because "events" is null
 1111
 05/09/2023
 31
 null
 Erro ao ler a linha do arquivo de atendimentos.
-Evento não encontrado.
+Cannot invoke "dados.Colecao.ColecaoEvents.getEventByCodiigo(String)" because "events" is null
 2222
 17/10/2023
 14
 null
 Erro ao ler a linha do arquivo de atendimentos.
-Evento não encontrado.
-Exporting to: adsdssadasd
-Exporting to: FILES/ADS
-Erro ao exportar dados para o arquivo.
-Erro ao exportar dados para o arquivo.
-Erro ao exportar dados para o arquivo.
-Erro ao exportar dados para o arquivo.
-Exporting to: newfolder/dasads
+Cannot invoke "dados.Colecao.ColecaoEvents.getEventByCodiigo(String)" because "events" is null

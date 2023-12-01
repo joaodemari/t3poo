@@ -52,7 +52,6 @@ public class AdicionarEquipamento extends JPanel implements ActionListener {
         idContainer.add(idField);
         add(idContainer);
 
-        // Labels e Fields
         nomeLabel = new JLabel("Nome do Equipamento");
         nomeField = new JTextField(20);
 
@@ -68,7 +67,6 @@ public class AdicionarEquipamento extends JPanel implements ActionListener {
         custoDiaContainer.add(custoDiaField);
         add(custoDiaContainer);
 
-        // Tabs
         tipoTab = new JTabbedPane();
         barcoTab = new BarcoTab();
         escavadeiraTab = new EscavadeiraTab();
@@ -77,8 +75,6 @@ public class AdicionarEquipamento extends JPanel implements ActionListener {
         tipoTab.addTab("Barco", barcoTab);
         tipoTab.addTab("Caminhão Tanque", caminhaoTab);
         tipoTab.addTab("Escavadeira", escavadeiraTab);
-
-        // Adicione outras tabs conforme necessário
 
         tipoContainer = new JPanel();
         tipoContainer.add(tipoTab);
@@ -106,11 +102,8 @@ public class AdicionarEquipamento extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        // Verifica qual tab está selecionada
         try {
             int tabIndex = tipoTab.getSelectedIndex();
-
-            // Cria o objeto do tipo correspondente à tab selecionada
 
             if (nomeField.getText().equals(""))
                 throw new InputMismatchException();
@@ -119,24 +112,23 @@ public class AdicionarEquipamento extends JPanel implements ActionListener {
             Equipamento equipamento = null;
 
             switch (tabIndex) {
-                case 0: // Barco
+                case 0:
                     equipamento = new Barco(Integer.parseInt(idField.getText()), nomeField.getText(),
                             Double.parseDouble(custoDiaField.getText()),
                             Integer.parseInt(barcoTab.getCapacidade()));
                     break;
-                case 1: // Caminhão Tanque
+                case 1:
                     equipamento = new CaminhaoTanque(Integer.parseInt(idField.getText()), nomeField.getText(),
                             Double.parseDouble(custoDiaField.getText()),
                             Integer.parseInt(caminhaoTab.getCapacidade()));
                     break;
-                case 2: // Escavadeira
+                case 2:
                     equipamento = new Escavadeira(Integer.parseInt(idField.getText()), nomeField.getText(),
                             Double.parseDouble(custoDiaField.getText()), escavadeiraTab.getCombustivel(),
                             Integer.parseInt(escavadeiraTab.getCapacidade()));
                     break;
             }
 
-            // Adiciona o equipamento à coleção
             equipamentos.adicionar(equipamento);
             showMessage("Equipamento adicionado com sucesso!");
 

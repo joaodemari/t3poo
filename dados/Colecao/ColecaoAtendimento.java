@@ -29,8 +29,6 @@ public class ColecaoAtendimento extends ArrayList<Atendimento> {
         return atendimentosArray;
     }
 
-    // Implemente métodos específicos, se necessário
-
     public boolean codExists(int cod) {
         for (Atendimento atendimento : this) {
             if (atendimento.getCod() == cod) {

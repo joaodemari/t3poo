@@ -16,7 +16,7 @@ public class EscavadeiraTab extends JPanel {
     private String selected;
 
     public EscavadeiraTab() {
-        super(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Layout com espaçamento
+        super(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         String[] combustiveis = { "ALCOOL", "DIESEL", "GASOLINA" };
 
@@ -27,33 +27,26 @@ public class EscavadeiraTab extends JPanel {
         dropdown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Update the label with the selected item
                 selected = dropdown.getSelectedItem().toString();
             }
         });
         add(combustivelLabel);
         add(dropdown);
 
-        // Adiciona uma borda ao painel
         this.setBorder(BorderFactory.createTitledBorder("Configurações da Escavadeira"));
 
         escavadeiraLabel = new JLabel("Carga:");
         escavadeiraField = new JTextField(10);
 
-        // Define a fonte para os componentes
         Font fonte = new Font("Arial", Font.PLAIN, 14);
         escavadeiraLabel.setFont(fonte);
         escavadeiraField.setFont(fonte);
 
-        // Adiciona os componentes ao painel
         this.add(escavadeiraLabel);
         this.add(escavadeiraField);
 
-        // Define cores de fundo para os componentes (opcional)
         this.setBackground(Color.yellow);
         escavadeiraField.setBackground(Color.white);
-
-        // Adiciona um ouvinte de eventos ou personaliza ainda mais conforme necessário
     }
 
     public void limpar() {
@@ -61,7 +54,6 @@ public class EscavadeiraTab extends JPanel {
 
     }
 
-    // Métodos de acesso aos componentes
     public String getCapacidade() {
         return escavadeiraField.getText();
     }

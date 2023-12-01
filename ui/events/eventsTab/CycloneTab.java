@@ -9,9 +9,8 @@ public class CycloneTab extends JPanel {
     private JTextField speedField, precipitationField;
 
     public CycloneTab() {
-        super(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Layout com espaçamento
+        super(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
-        // Adiciona uma borda ao painel
         this.setBorder(BorderFactory.createTitledBorder("Detalhes do ciclone"));
 
         speedLabel = new JLabel("Velocidade");
@@ -19,21 +18,18 @@ public class CycloneTab extends JPanel {
         precipitationLabel = new JLabel("Precipitação");
         precipitationField = new JTextField(10);
 
-        // Define a fonte para os componentes
         Font fonte = new Font("Arial", Font.PLAIN, 14);
         speedLabel.setFont(fonte);
         speedField.setFont(fonte);
         precipitationLabel.setFont(fonte);
         precipitationField.setFont(fonte);
 
-        // Adiciona os componentes ao painel
         this.add(speedLabel);
         this.add(speedField);
         this.add(precipitationLabel);
         this.add(precipitationField);
     }
 
-    // Métodos de acesso aos componentes
     public String getSpeed() {
         return speedField.getText();
     }

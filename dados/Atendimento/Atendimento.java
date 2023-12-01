@@ -90,7 +90,6 @@ public class Atendimento {
 	}
 
 	public double calculaCusto() {
-		// custo da equipe + custo dos equipamentos + custo de deslocamento
 		return 0;
 	}
 

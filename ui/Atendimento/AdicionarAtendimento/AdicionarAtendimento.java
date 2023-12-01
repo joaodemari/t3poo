@@ -34,7 +34,6 @@ public class AdicionarAtendimento extends JPanel implements ActionListener {
                 codField.setText("");
                 dataInicioField.setText("");
                 duracaoField.setText("");
-                // Limpar outros campos, se necessário
             }
         });
         add(limpar);
